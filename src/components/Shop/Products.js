@@ -3,7 +3,7 @@ import classes from './Products.module.css';
 
 const Dummy_Products = [
   { id: 'p1', title: 'My first Book', price: 6, description: 'This is first book I ever wrote' },
-  { id: 'p2', title: 'My second Book', price: 6, description: 'This second book I ever wrote' },
+  { id: 'p2', title: 'My second Book', price: 5, description: 'This second book I ever wrote' },
 ]
 
 const Products = (props) => {
