@@ -16,7 +16,10 @@ export const fetchCartData = () => {
 
         try {
          const cartData =    await fetchData();
-         dispatch(cartActions.replaceCart(cartData));
+         dispatch(cartActions.replaceCart({
+            items: cartData.items || [],
+            totalQuantity: cartData.totalQuantity || 0
+         }));
         }
          catch (error) {
             uiActions.showNotification({
@@ -43,7 +46,10 @@ export const sendCartData = (cartData) => {
 
             const response = await fetch('https://addvance-redux-default-rtdb.firebaseio.com/cart.json', {
                 method: 'PUT',
-                body: JSON.stringify(cartData)
+                body: JSON.stringify({
+                    items: cartData.items,
+                    totalQuantity: cartData.totalQuantity
+                })
             });
 
             if (!response.ok) {
